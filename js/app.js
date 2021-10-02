@@ -15,6 +15,9 @@ const showProducts = (products) => {
     // title limit
     const title = titleLimit(product.title, 15, true);
 
+    let random = Math.round(Math.random() * 10);
+
+
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
@@ -24,6 +27,14 @@ const showProducts = (products) => {
       </div>
       <h3>${title}</h3>
       <p>Category: ${product.category}</p>
+      <p class="rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="far fa-star"></i>
+      <span>(${random})</span>
+      </p>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">Add to cart</button>
       <button id="details-btn" onclick="productDetails(${product.id})" class="btn btn-danger">Details</button></div>
@@ -110,6 +121,7 @@ const singleProduct = (product) => {
   div.classList.add("product-details");
   div.innerHTML = `<div class="single-product-details">
       <div>
+      <h4>Product Details</h4>
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${title}</h3>
